@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { SalesProvider } from './context/SalesContext';
 import Product from './PRODUCTZX/Product';
 import ProductsList from './PRODUCTZX/ProductsList';
 import Cart from './PRODUCTZX/Cart';

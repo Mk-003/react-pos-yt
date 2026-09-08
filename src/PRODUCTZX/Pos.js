@@ -3,6 +3,8 @@ import axios from "axios";
 import ProductList from "./ProductsList";
 import Cart from "./Cart";
 import Receipt from "./Receipt";
+import SalesSummary from './SALES/SalesContext';
+import { useSales } from "../context/SalesContext";
 
 const HOST = "http://localhost:5000/api";
 
@@ -10,6 +12,7 @@ export default function Pos() {
   const [products, setProducts] = useState([]);
   const [items, setItems] = useState([]);
   const [receipt, setReceipt] = useState(null);
+  const { addSale } = useSales(); // ← pulls from context
 
   useEffect(() => {
     axios.get(`${HOST}/products`).then((res) => setProducts(res.data));
@@ -30,7 +33,8 @@ export default function Pos() {
   const updateQty = (id, qty) =>
     setItems((prev) => prev.map((i) => (i.id === id ? { ...i, quantity: qty } : i)));
 
-  const removeItem = (id) => setItems((prev) => prev.filter((i) => i.id !== id));
+  const removeItem = (id) =>
+    setItems((prev) => prev.filter((i) => i.id !== id));
 
   const handleCheckout = async (total) => {
     const res = await axios.post(`${HOST}/transactions/new`, {
@@ -39,6 +43,7 @@ export default function Pos() {
       items,
     });
     setReceipt(res.data);
+    addSale(total);   // ← updates cumulative total
     setItems([]);
   };
 
@@ -52,6 +57,7 @@ export default function Pos() {
         onCheckout={handleCheckout}
       />
       <Receipt receipt={receipt} onClose={() => setReceipt(null)} />
+      <SalesSummary />
     </div>
   );
 }   

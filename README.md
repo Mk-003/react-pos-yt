@@ -9,7 +9,12 @@ This project was built for teaching React for beginners in 1 Hour. Students lear
 - Excute `npm install` to download all necessary packages
 - Excute `npm start` to start the project
 
-
+## POS 
+1. PRODUCT PAGE
+2. PRODUCT LIST WHEN CUSTOMER ORDERS VARIOUS BOOKIES
+3. CART HOLDS LIST
+4. RECIEPT - TOTAL COST FOR ORDERED BOOKIES
+5. ADMIN CAN SEE TOTAL AMOUNT USED
 
 
 
