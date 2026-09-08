@@ -10,6 +10,7 @@ import Cart from './PRODUCTZX/Cart';
 import Pos from './PRODUCTZX/Pos';
 import Receipt from './PRODUCTZX/Receipt';
 import Home from './PRODUCTZX/Home';
+import SalesSummary from './SALES/SalesSummary';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path ="/cart" element={<Cart/>}/>
         <Route path="/pos" element={<Pos/>}/>
         <Route path='/reciept' element={<Receipt/>} />
+        <Route path="/salessummary" element={<SalesSummary/>} />
         
       </Routes>
     </Router>

@@ -1,0 +1,30 @@
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .filter-bar button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .filter-bar button.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+  
+  .date-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summary-stats p {
+    margin: 0.3rem 0;
+  }   

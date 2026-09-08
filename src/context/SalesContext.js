@@ -3,16 +3,17 @@ import React, { createContext, useContext, useState } from "react";
 const SalesContext = createContext();
 
 export function SalesProvider({ children }) {
-  const [totalSales, setTotalSales] = useState(0);
-  const [receiptCount, setReceiptCount] = useState(0);
+  const [transactions, setTransactions] = useState([]);
 
-  const addSale = (amount) => {
-    setTotalSales((prev) => prev + amount);
-    setReceiptCount((prev) => prev + 1);
+  const addSale = (total) => {
+    setTransactions((prev) => [
+      ...prev,
+      { total, date: new Date().toISOString() },
+    ]);
   };
 
   return (
-    <SalesContext.Provider value={{ totalSales, receiptCount, addSale }}>
+    <SalesContext.Provider value={{ transactions, addSale }}>
       {children}
     </SalesContext.Provider>
   );

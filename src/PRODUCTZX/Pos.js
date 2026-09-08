@@ -3,8 +3,8 @@ import axios from "axios";
 import ProductList from "./ProductsList";
 import Cart from "./Cart";
 import Receipt from "./Receipt";
-import SalesSummary from './SALES/SalesContext';
 import { useSales } from "../context/SalesContext";
+import SalesSummary from "../SALES/SalesSummary";
 
 const HOST = "http://localhost:5000/api";
 
